@@ -66,7 +66,9 @@ check_header_line_text
 ]
 .right-column[
 
-*pdf.rb* is moved under utilities, the module name is changed to `Utilities::PDF`
+- *pdf.rb* is moved under utilities
+
+- the module name is changed to `Utilities::PDF`
 
 ```ruby
 # old 
@@ -74,9 +76,6 @@ Common.pdf_data_check_by_behind_keyword
 # replaced with
 Utilities::PDF.check_data_by_keyword
 ```
-
-this method is not used in any project, will need to be deleted.
-
 ]
 ---
 .left-column[
@@ -85,7 +84,9 @@ this method is not used in any project, will need to be deleted.
 ]
 .right-column[
 
-*os.rb* is moved under utilities, the module name is changed to `Utilities::OS`
+- *os.rb* is moved under utilities
+
+- the module name is changed to `Utilities::OS`
 
 ```ruby
 # old
@@ -100,7 +101,10 @@ Utilities::OS.get_current_os
   ### - database.rb
 ]
 .right-column[
-*database.rb* is moved under utilities, the module name is changed to `Utilities::DatabaseUtil`
+
+- *database.rb* is moved under utilities
+
+- the module name is changed to `Utilities::DatabaseUtil`
 
 ```ruby
 # old
@@ -108,6 +112,7 @@ DBConnectionUtil.new
 # replaced with
 Utilities::DatabaseUtil.new
 ```
+
 ]
 ---
 .left-column[
@@ -115,7 +120,10 @@ Utilities::DatabaseUtil.new
   ### - file_utils.rb
 ]
 .right-column[
-*file_utils.rb* is renamed to *file_util.rb*, and moved under utilities. the module name is changed to `Utilities::FileUtil`
+
+- *file_utils.rb* is renamed to *file_util.rb* and moved under utilities
+
+- the module name is changed to `Utilities::FileUtil`
 
 ```ruby
 # old
@@ -133,6 +141,7 @@ FileUtils.compare_files
 # replaced with
 Utilities::FileUtil.compare_file
 ```
+
 ]
 
 ---
@@ -142,9 +151,12 @@ Utilities::FileUtil.compare_file
 ]
 .right-column[
 
-*csv.rb* is moved under utilities, the module name is changed to `Utilities::CSV` 
+- *csv.rb* is moved under utilities
 
-refactor the way about handling csv files, examples as below,
+- the module name is changed to `Utilities::CSV` 
+
+- refactor the way about handling csv files
+
 ```ruby       
 file = "#{File.dirname(__FILE__)}/report.csv"
 csv = Utilities::CSVParser.new(file)
@@ -161,9 +173,12 @@ csv.get_instance_count_by_row_data_hash({"Make" => "Chevy"})
 ]
 .right-column[
 
-*random_profile.rb* is merged into *generate_data.rb* under utilities
+- *random_profile.rb* is merged into *generate_data.rb*
 
-the module name is changed to `Utilities::GenerateData`
+- the file is moved under utilities
+
+- the module name is changed to `Utilities::GenerateData`
+
 ```ruby           
 # old
 RandomProfile.generate
@@ -188,24 +203,35 @@ Utilities::GenerateData.get_user_child
   ### - common.rb
 ]
 .right-column[
-move Date/Time related methods to *date_time.rb*, added to new module `Utilities::DateTime`
+- move Date/Time related methods to *date_time.rb*
+
+- add them to new module `Utilities::DateTime`
+
 ```ruby
 Common.get_AgencyNextDay #replaced with 
 Utilities::DateTime.get_next_day_by_agency_timezone
+
 Common.convert_local_time_to_timezone_time #replaced with 
 Utilities::DateTime.convert_local_time_by_timezone
+
 Common.convert_utc_time_to_timezone_time #replaced with 
 Utilities::DateTime.convert_utc_time_by_timezone
+
 Common.convert_local_now_to_timezone_tomorrow #replaced with 
 Utilities::DateTime.convert_utc_time_by_timezone
+
 Common.convert_timezone_time_to_utc #replaced with 
 Utilities::DateTime.convert_current_local_time_to_next_day_by_timezone
+
 Common.count_age #replaced with 
 Utilities::DateTime.get_age_by_birthday
+
 Common.count_dif #replaced with 
 Utilities::DateTime.get_second_difference   
+
 Common.format_string_time #replaced with 
 Utilities::DateTime.get_time_by_format
+
 Common.two_digits_month #replaced with 
 Utilities::DateTime.get_two_digits_month_by_month_name
 ```
@@ -216,7 +242,10 @@ Utilities::DateTime.get_two_digits_month_by_month_name
   ### - common.rb
 ]
 .right-column[        
-move random data generating methods to *generate_data.rb*, the module name is changed to `Utilities::GenerateData`
+- move random data generating methods to *generate_data.rb*
+
+- the module name is changed to `Utilities::GenerateData`
+
 ```ruby
 Common.generate_GUID # replaced with
 Utilities::GenerateData.get_guid
@@ -230,7 +259,8 @@ Utilities::GenerateData.get_number_string_by_length
 Common.generate_random_phone_number # replaced with
 Utilities::GenerateData.get_phone_number
 ```        
-add new method about generating string by length
+- add new method about generating string by length
+
 ```ruby
 Utilities::GenerateData.get_string_by_length
 ```
@@ -241,14 +271,15 @@ Utilities::GenerateData.get_string_by_length
   ### - common.rb
 ]
 .right-column[    
-move Base64 encode method to *file_util.rb*
+- move Base64 encode method to *file_util.rb*
+
 ```ruby    
 Common.get_base64_encoding_file_content
 #replaced with
 Utilities::FileUtil.get_base64_encoding_file_content
 ```
 
-remove *Common.get_file_name_by_time*, this is only used inside respec_example.rb
+- remove *Common.get_file_name_by_time*, this is only used inside respec_example.rb
 ]
 ---
 .left-column[
@@ -256,7 +287,10 @@ remove *Common.get_file_name_by_time*, this is only used inside respec_example.r
   ### - browser.rb
 ]
 .right-column[
-renamed to *web_driver.rb* under utilities, added to new module `WebDriver`
+- renamed to *web_driver.rb* under utilities
+
+- replaced with new module `WebDriver`
+
 ```ruby
 Common.restart_browser -> WebDriver.restart_browser 
 Common.start_browser -> WebDriver.start_browser 
